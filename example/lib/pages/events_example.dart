@@ -50,17 +50,18 @@ class _TableEventsExampleState extends State<TableEventsExample> {
   }
 
   void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
-    if (!isSameDay(_selectedDay, selectedDay)) {
-      setState(() {
-        _selectedDay = selectedDay;
-        _focusedDay = focusedDay;
-        _rangeStart = null; // Important to clean those
-        _rangeEnd = null;
-        _rangeSelectionMode = RangeSelectionMode.toggledOff;
-      });
+    print('Selected: $selectedDay');
+    // if (!isSameDay(_selectedDay, selectedDay)) {
+    //   setState(() {
+    //     _selectedDay = selectedDay;
+    //     _focusedDay = focusedDay;
+    //     _rangeStart = null; // Important to clean those
+    //     _rangeEnd = null;
+    //     _rangeSelectionMode = RangeSelectionMode.toggledOff;
+    //   });
 
-      _selectedEvents.value = _getEventsForDay(selectedDay);
-    }
+    //   _selectedEvents.value = _getEventsForDay(selectedDay);
+    // }
   }
 
   void _onRangeSelected(DateTime? start, DateTime? end, DateTime focusedDay) {
@@ -119,32 +120,32 @@ class _TableEventsExampleState extends State<TableEventsExample> {
             },
           ),
           const SizedBox(height: 8.0),
-          Expanded(
-            child: ValueListenableBuilder<List<Event>>(
-              valueListenable: _selectedEvents,
-              builder: (context, value, _) {
-                return ListView.builder(
-                  itemCount: value.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 12.0,
-                        vertical: 4.0,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      child: ListTile(
-                        onTap: () => print('${value[index]}'),
-                        title: Text('${value[index]}'),
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
-          ),
+          // Expanded(
+          //   child: ValueListenableBuilder<List<Event>>(
+          //     valueListenable: _selectedEvents,
+          //     builder: (context, value, _) {
+          //       return ListView.builder(
+          //         itemCount: value.length,
+          //         itemBuilder: (context, index) {
+          //           return Container(
+          //             margin: const EdgeInsets.symmetric(
+          //               horizontal: 12.0,
+          //               vertical: 4.0,
+          //             ),
+          //             decoration: BoxDecoration(
+          //               border: Border.all(),
+          //               borderRadius: BorderRadius.circular(12.0),
+          //             ),
+          //             child: ListTile(
+          //               onTap: () => print('${value[index]}'),
+          //               title: Text('${value[index]}'),
+          //             ),
+          //           );
+          //         },
+          //       );
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );
