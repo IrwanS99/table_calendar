@@ -62,7 +62,7 @@ class _TableMultiExampleState extends State<TableMultiExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TableCalendar - Multi'),
+        title: Text('TableCalendar - Multi X'),
       ),
       body: Column(
         children: [
@@ -92,10 +92,12 @@ class _TableMultiExampleState extends State<TableMultiExample> {
           ElevatedButton(
             child: Text('Clear selection'),
             onPressed: () {
-              setState(() {
-                _selectedDays.clear();
-                _selectedEvents.value = [];
-              });
+              setState(
+                () {
+                  _selectedDays.clear();
+                  _selectedEvents.value = [];
+                },
+              );
             },
           ),
           const SizedBox(height: 8.0),
